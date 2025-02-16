@@ -1,6 +1,14 @@
 [
   {
     "completed": true,
-    "description": "do that"
+    "description": "do gym"
+  },
+  {
+    "completed": false,
+    "description": "do walk"
+  },
+  {
+    "completed": false,
+    "description": "do read"
   }
 ]
