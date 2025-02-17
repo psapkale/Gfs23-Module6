@@ -1,0 +1,12 @@
+{
+  "name": "hof-for-array",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Prem",
+  "license": "ISC",
+  "description": "bunch of utility functions for integer array"
+}
