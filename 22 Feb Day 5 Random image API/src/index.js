@@ -28,6 +28,35 @@ appRouter.get("/image/random", async (req, res) => {
    }
 });
 
+appRouter.get("/jokes/random", async (req, res) => {
+   try {
+      const { data } = await axios.get(
+         "https://api.api-ninjas.com/v1/dadjokes",
+         {
+            headers: {
+               "X-Api-Key": "1jsYxFMKRYrqW+EClhq/ww==hthehCmsku2Gsk1E",
+            },
+         }
+      );
+
+      if (!data) {
+         throw new Error("Failed to get joke");
+      }
+
+      res.status(200).json({
+         message: "Random joke",
+         joke: data[0]?.joke,
+      });
+   } catch (err) {
+      console.log(err);
+
+      res.status(500).json({
+         message: "Failed to generate joke",
+         error: err,
+      });
+   }
+});
+
 app.use("/api", appRouter);
 
 app.listen(3000, () => {
