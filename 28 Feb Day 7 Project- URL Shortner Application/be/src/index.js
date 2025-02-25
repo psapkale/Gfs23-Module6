@@ -10,8 +10,8 @@ const apiRouter = express.Router();
 const DB_FILE = "./db.json";
 const _filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(_filename);
-const BE_URL = "http://localhost:3000";
-// const BE_URL = "https://url-shortner-backend-y2qi.onrender.com";
+// const BE_URL = "http://localhost:3000";
+const BE_URL = "https://url-shortner-backend-y2qi.onrender.com";
 
 apiRouter.use(express.json());
 apiRouter.use(cors());
