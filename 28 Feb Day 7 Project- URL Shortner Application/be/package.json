@@ -1,0 +1,22 @@
+{
+  "name": "28-feb-day-7-project--url-shortner-application",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "watch": "nodemon ./src/index.js",
+    "start": "node ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "fs": "^0.0.1-security",
+    "nanoid": "^5.1.2",
+    "nodemon": "^3.1.9"
+  }
+}
