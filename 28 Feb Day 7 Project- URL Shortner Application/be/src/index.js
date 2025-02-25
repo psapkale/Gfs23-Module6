@@ -2,13 +2,16 @@ import express from "express";
 import fs from "fs";
 import { nanoid } from "nanoid";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 const apiRouter = express.Router();
 const DB_FILE = "./db.json";
-
-// const BE_URL = "http://localhost:3000";
-const BE_URL = "https://url-shortner-backend-y2qi.onrender.com";
+const _filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(_filename);
+const BE_URL = "http://localhost:3000";
+// const BE_URL = "https://url-shortner-backend-y2qi.onrender.com";
 
 apiRouter.use(express.json());
 apiRouter.use(cors());
@@ -21,6 +24,10 @@ const loadDB = () => {
 const saveDB = (data) => {
    fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
 };
+
+apiRouter.get("/", (req, res) => {
+   res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 apiRouter.post("/shorten", (req, res) => {
    const { url } = req.body;
