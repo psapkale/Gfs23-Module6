@@ -7,6 +7,9 @@ const app = express();
 const apiRouter = express.Router();
 const DB_FILE = "./db.json";
 
+// const BE_URL = "http://localhost:3000";
+const BE_URL = "https://url-shortner-backend-y2qi.onrender.com";
+
 apiRouter.use(express.json());
 apiRouter.use(cors());
 
@@ -28,7 +31,9 @@ apiRouter.post("/shorten", (req, res) => {
    db[id] = url;
    saveDB(db);
 
-   res.json({ shortUrl: `http://localhost:3000/${id}` });
+   res.json({
+      shortUrl: `${BE_URL}/${id}`,
+   });
 });
 
 apiRouter.get("/getAll", (req, res) => {
