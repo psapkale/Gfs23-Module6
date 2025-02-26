@@ -1,13 +1,17 @@
-import "./Home.css";
 import Navbar from "../components/Navbar";
 
 function Home() {
    return (
       <>
          <Navbar />
-         <div className="home main">
-            <div className="home-sub">
-               <p className="welcome">Welcome to React</p>
+         <div
+            className="home main text-center text-white flex items-center justify-center"
+            style={{
+               background: "linear-gradient(120deg,#040220,#8e0e00 250%)",
+            }}
+         >
+            <div className="home-sub w-[90%] h-[70%] flex items-center justify-evenly flex-col text-center">
+               <p className="welcome text-[350%]">Welcome to React</p>
                <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Nulla quos vero sunt at iusto sit id aut odio assumenda amet,
@@ -26,7 +30,9 @@ function Home() {
                   nemo laboriosam debitis cum officiis vel? Labore nisi veniam
                   est quaerat doloribus nulla.
                </p>
-               <button>Explore More !!!</button>
+               <button className="border border-[rgb(16,16,212)] border-t-[rgb(113,113,250)] border-l-[(113,113,250)] text-[rgb(16,16,212)] rounded-md w-[200px] py-2 font-semibold">
+                  Explore More !!!
+               </button>
             </div>
          </div>
       </>

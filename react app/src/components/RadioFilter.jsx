@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setUsersData } from "../slices/UsersSlice";
 
 function Radio() {
-   const allUsers = useSelector((state) => state.constUserData);
+   const allUsers = useSelector((state) => state.usersHolder);
    const dispatch = useDispatch();
 
    function filter(e) {

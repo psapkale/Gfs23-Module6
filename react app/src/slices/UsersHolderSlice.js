@@ -5,8 +5,7 @@ const usersHolder = createSlice({
    initialState: [],
    reducers: {
       setUsersHolder(state, action) {
-         state = action.payload;
-         return;
+         return (state = action.payload);
       },
    },
 });

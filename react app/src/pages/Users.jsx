@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unknown-property */
 import { useEffect } from "react";
-import "./Users.css";
 import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../components/Navbar";
 import { setUsersData } from "../slices/UsersSlice";
@@ -8,25 +7,27 @@ import { setUsersHolder } from "../slices/UsersHolderSlice";
 import RadioFilter from "../components/RadioFilter";
 
 function Users() {
-   const data = useSelector((state) => state.userData);
+   const data = useSelector((state) => state.usersData);
    const dispatch = useDispatch();
 
    useEffect(() => {
-      fetch("https://randomuser.me/api/?results=20")
-         .then((res) => res.json())
-         .then((data) => {
-            dispatch(setUsersData(data.results));
-            dispatch(setUsersHolder(data.results));
-         })
-         .catch((e) => console.log(e));
+      (async function () {
+         await fetch("https://randomuser.me/api/?results=20")
+            .then((res) => res.json())
+            .then((d) => {
+               dispatch(setUsersData(d.results));
+               dispatch(setUsersHolder(d.results));
+            })
+            .catch((e) => console.log(e));
+      })();
    }, []);
 
    return (
       <>
          <Navbar />
-         <div className="users">
-            <h2>User Deatils</h2>
-            <p>
+         <div className="users w-full flex items-center flex-col">
+            <h2 className="w-[80%] my-3">User Deatils</h2>
+            <p className="w-[80%] my-3">
                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam
                ipsum aspernatur atque consequatur assumenda fuga libero a! Iusto
                ullam aliquam sunt quos minima facere ex quibusdam voluptatum
@@ -41,20 +42,20 @@ function Users() {
                maiores corporis assumenda.
             </p>
             <RadioFilter />
-            <table frame="box" rules="all" className="table">
-               <thead>
+            <table frame="box" rules="all" className="table w-[80%] my-3">
+               <thead className="bg-black text-white">
                   <tr>
-                     <th>IMAGE</th>
-                     <th>NAME</th>
-                     <th>EMAIL</th>
-                     <th>GENDER</th>
+                     <th className="py-2 pr-1">IMAGE</th>
+                     <th className="py-2 pr-1">NAME</th>
+                     <th className="py-2 pr-1">EMAIL</th>
+                     <th className="py-2 pr-1">GENDER</th>
                   </tr>
                </thead>
                <tbody>
                   {data?.map((item) => {
                      return (
                         <tr key={item.login.uuid}>
-                           <td>
+                           <td className="text-center">
                               <img
                                  src={item.picture.medium}
                                  alt={item.login.uuid}
@@ -63,9 +64,9 @@ function Users() {
                                  loading="lazy"
                               />
                            </td>
-                           <td>{item.name.first}</td>
-                           <td>{item.email}</td>
-                           <td>{item.gender}</td>
+                           <td className="text-center">{item.name.first}</td>
+                           <td className="text-center">{item.email}</td>
+                           <td className="text-center">{item.gender}</td>
                         </tr>
                      );
                   })}
