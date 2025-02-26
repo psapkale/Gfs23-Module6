@@ -1,0 +1,35 @@
+.home{
+    text-align: center;
+    background: linear-gradient(120deg,#040220, #8e0e00 250%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-sub{
+    width: 90%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.home-sub{
+    text-align: start;
+}
+.welcome{
+    font-size: 350%;
+}
+.home-sub>button{
+    border: none;
+    background-color: transparent;
+    border: 1px solid rgb(16, 16, 212);
+    border-top:1px solid rgb(113, 113, 250) !important;
+    border-left:1px solid rgb(113, 113, 250) !important;
+    color:  rgb(16, 16, 212);
+    border-radius: 5px;
+    height: 35px;
+    width: 200px;
+    font-weight: bolder;
+}
