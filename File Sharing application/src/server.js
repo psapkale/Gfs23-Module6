@@ -31,6 +31,12 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 app.use('/api/auth', authRoutes);
 app.use('/api/files', fileRoutes);
 
+app.get('/', (req, res) => {
+    res.sendStatus(200).json({
+        message: "File sharing app"
+    })
+})
+
 // Database connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/file-sharing-app', {
     useNewUrlParser: true,
