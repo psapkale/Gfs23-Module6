@@ -17,7 +17,10 @@ export const isAuthenticated = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     // Get user from token
-    const user = await User.findById(decoded.userId).select('-password');
+    const user = await User.findById(decoded.userId)
+      .select('+isActive')
+      .select('-password');
+      
     if (!user) {
       throw new ApiError(401, 'User not found');
     }
